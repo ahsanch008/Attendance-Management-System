@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System-wide Attendance Report</title>
+    <link rel="stylesheet" href="/css/adminAction.css">
+</head>
+<body>
+    <h1>System-wide Attendance Report</h1>
+    <p>From: <%= report.fromDate %> To: <%= report.toDate %></p>
+    <p>Total Days: <%= report.totalDays %></p>
+    <p>Total Present: <%= report.totalPresent %></p>
+    <p>Total Absent: <%= report.totalAbsent %></p>
+    <p>Average Attendance Percentage: <%= report.averageAttendancePercentage %></p>
+</body>
+</html>

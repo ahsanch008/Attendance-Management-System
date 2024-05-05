@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="/css/adminStyle.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Admin Panel</h1>
+        
+        <div class="dashboard-grid">
+            <section class="dashboard-section left">
+                <h2>User-specific Attendance Report</h2>
+                <form action="/admin/attendance/report" method="POST">
+                    <label for="fullName">Full Name:</label>
+                    <input type="text" id="fullName" name="fullName">
+                    <label for="startDate">Start Date:</label>
+                    <input type="date" id="startDate" name="startDate">
+                    <label for="endDate">End Date:</label>
+                    <input type="date" id="endDate" name="endDate"><br>
+                    <button type="submit">Generate Report</button>
+                </form>
+            </section>
+
+            <section class="dashboard-section right">
+                <h2>System-wide Attendance Report</h2>
+                <form action="/admin/system-report" method="POST"><br><br>
+                    <label for="fromDate">From Date:</label>
+                    <input type="date" id="fromDate" name="fromDate"><br><br>
+                    <label for="toDate">To Date:</label>
+                    <input type="date" id="toDate" name="toDate"><br>
+                    <button type="submit">Generate Report</button>
+                </form>
+            </section>
+
+            <section class="dashboard-section left">
+                <h2>Grading System</h2><br>
+                <form action="/admin/grading" method="GET">
+                    <button type="submit">View Grades</button>
+                </form>
+            </section>
+
+            <section class="dashboard-section right">
+                <h2>Pending Leave Requests</h2>
+                <% if (pendingLeaves.length === 0) { %>
+                    <p>No pending leave requests</p>
+                <% } else { %>
+                    <% pendingLeaves.forEach(leave => { %>
+                        <div class="leave-request">
+                            <p>User Name: <%= leave.userName %></p>
+                            <p>Start Date: <%= leave.startDate %></p>
+                            <p>End Date: <%= leave.endDate %></p>
+                            <p>Status: <%= leave.status %></p>
+                            <form action="/admin/leave/approve" method="POST">
+                                <input type="hidden" name="leaveId" value="<%= leave._id %>">
+                                <button type="submit" name="status" value="approved">Approve</button>
+                            </form>
+                            <form action="/admin/leave/approve" method="POST">
+                                <input type="hidden" name="leaveId" value="<%= leave._id %>">
+                                <button type="submit" name="status" value="rejected">Reject</button>
+                            </form>
+                        </div>
+                    <% }); %>
+                <% } %>
+            </section>
+
+            <section class="dashboard-section left">
+                <h2>Add Attendance for Specific User</h2>
+                <form action="/admin/attendance/add" method="POST">
+                    <label for="userId">User ID:</label>
+                    <input type="text" id="userId" name="userId">
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" name="date"><br>
+                    <label for="status">Status:</label>
+                    <select id="status" name="status">
+                        <option value="present">Present</option>
+                        <option value="absent">Absent</option>
+                    </select>
+                    <button type="submit">Add Attendance</button>
+                </form>
+            </section>
+
+            <section class="dashboard-section right">
+                <h2>Edit Attendance for Specific User</h2>
+                <form action="/admin/attendance/edit" method="POST">
+                    <label for="userIdEdit">User ID:</label>
+                    <input type="text" id="userId" name="userId">
+                    <label for="dateEdit">Date:</label>
+                    <input type="date" id="date" name="date"><br>
+                    <label for="statusEdit">Status:</label>
+                    <select id="statusEdit" name="status">
+                        <option value="present">Present</option>
+                        <option value="absent">Absent</option>
+                    </select>
+                    <button type="submit">Edit Attendance</button>
+                </form>
+            </section>
+
+            <section class="dashboard-section left">
+                <h2>Delete Attendance for Specific User</h2>
+                <form action="/admin/attendance/delete" method="POST">
+                    <label for="userIdDelete">User ID:</label>
+                    <input type="text" id="userIdDelete" name="userId">
+                    <label for="dateDelete">Date:</label>
+                    <input type="date" id="dateDelete" name="date"><br>
+                    <button type="submit">Delete Attendance</button>
+                </form>
+            </section>
+        </div>
+    </div>
+    <section class="dashboard-section right">
+    <form class="logout" action="/admin/logout" method="GET">
+        <button type="submit">Logout</button>
+    </form>
+</section>
+
+</body>
+</html>

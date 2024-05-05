@@ -1,0 +1,130 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-family:Arial, Helvetica, sans-serif;
+    background-color: #e0e0e0;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    text-align: center;
+    color: #333;
+}
+h2 {
+    font-family:Arial, Helvetica, sans-serif;
+    background-color: #e0e0e0;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    text-align: center;
+    color: #333;
+}
+p {
+    font-family:Arial, Helvetica, sans-serif;
+    background-color: #e0e0e0;
+    padding: 5px;
+    border-radius: 2px;
+    margin-bottom: 3px;
+    text-align: center;
+    color: #333;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+}
+
+.dashboard-section {
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+}
+
+.dashboard-section h2 {
+    font-family:Arial, Helvetica, sans-serif;
+    background-color: #e0e0e0;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    text-align: center;
+    color: #333;
+}
+
+
+.left {
+    grid-column: 1;
+}
+
+.right {
+    grid-column: 2;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+button,
+select {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+button {
+    background-color: #60778f;
+    color: #fff;
+    cursor: pointer;
+    width: 65%;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.leave-request {
+    background-color: #f0f0f0;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.leave-request p {
+    margin-bottom: 10px;
+}
+.logout {
+    text-align: center; /* Align button horizontally */
+}
+
+.logout button {
+    width: 150px; /* Adjust button width as needed */
+}

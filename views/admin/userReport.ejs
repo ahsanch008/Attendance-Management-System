@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Attendance Report</title>
+    <link rel="stylesheet" href="/css/adminAction.css">
+</head>
+<body>
+    <h1>User Attendance Report</h1>
+    <p>User ID: <%= report.userId %></p>
+    <p>Full Name: <%= report.fullName %></p>
+    <p>Start Date: <%= report.startDate %></p>
+    <p>End Date: <%= report.endDate %></p>
+    <p>Total Attendance Days: <%= report.totalAttendanceDays %></p>
+    <p>Total Leaves: <%= report.totalLeaves %></p>
+    <p>Percentage Attendance: <%= report.percentageAttendance %></p>
+</body>
+</html>

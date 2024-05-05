@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="/css/userStyle.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>User Dashboard</h1>
+            <p>Welcome, <%= user.fullName %>!</p>
+        </header>
+
+        <section class="actions">
+            <h2>Actions</h2>
+            <ul>
+                <li><a href="/user/view-attendance">View Attendance</a></li>
+                <li><a href="/user/create-leave-request">Create Leave Request</a></li>
+                <li><a href="/user/edit-details">Edit Your Details</a></li>
+                <li><a href="/user/logout">Logout</a></li>
+            </ul>
+        </section>
+
+        <section class="attendance-section">
+            <h2>Mark Attendance for Today</h2><br>
+            <p>Today is: <%= new Date().toLocaleDateString() %></p>
+            <br>
+            <% if (attendanceMarked) { %>
+                <p>Attendance already marked for today.</p>
+            <% } else { %>
+                <form action="/user/mark-attendance" method="POST">
+                    <button type="submit">Mark Attendance</button>
+                </form>
+            <% } %>
+        </section>
+    </div>
+</body>
+</html>

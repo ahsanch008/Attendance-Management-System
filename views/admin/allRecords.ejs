@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All User Records</title>
+    <link rel="stylesheet" href="/css/adminAction.css">
+</head>
+<body>
+    <h1>All User Records</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Full Name</th>
+                <th>Email</th>
+                <th>Profile Picture</th>
+                <th>Role</th>
+                <th>Created At</th>
+                <th>Updated At</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% users.forEach(user => { %>
+                <tr>
+                    <td><%= user.fullName %></td>
+                    <td><%= user.email %></td>
+                    <td><img src="<%= user.profilePicture %>" alt="Profile Picture" style="max-width: 100px;"></td>
+                    <td><%= user.role %></td>
+                    <td><%= user.createdAt.toLocaleString() %></td>
+                    <td><%= user.updatedAt.toLocaleString() %></td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</body>
+</html>

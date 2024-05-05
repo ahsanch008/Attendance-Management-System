@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Signup</title>
+    <link rel="stylesheet" href="/css/userStyle.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>User Signup</h1>
+        </header>
+
+        <section class="signup-section">
+            <form action="/user/signup" method="POST">
+                <input type="text" name="fullName" placeholder="Full Name" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <input type="password" name="confirmPassword" placeholder="Confirm Password" required>
+                <label for="profilePicture">Profile Picture:   </label>
+                <input type="file" id="profilePicture" name="profilePicture" accept="image/*" placeholder="Profile Picture URL"><br><br>
+                <button type="submit">Sign Up</button>
+            </form>
+            <p>Already have an account? <a href="/user/login">Login here</a></p>
+        </section>
+    </div>
+</body>
+</html>
