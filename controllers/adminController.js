@@ -44,7 +44,7 @@ const viewAllUserRecords = asyncErrorHandler(async (req, res) => {
 
 const editUserAttendance = asyncErrorHandler(async (req, res) => {
     const { userId, date, status } = req.body;
-        await Attendance.findOneAndUpdate({ userId: userId, date: date }, { status: status });
+        const attendance=await Attendance.findOneAndUpdate({ userId: userId, date: date }, { status: status });
         const pendingleaves=await Leave.find({status:"pending"});
         res.status(200).render('admin/adminDashboard',{pendingLeaves:pendingleaves});
 
@@ -59,11 +59,12 @@ const addAttendanceRecord = asyncErrorHandler(async (req, res) => {
 });
 
 const deleteAttendanceRecord = asyncErrorHandler(async (req, res) => {
-        const { fullName } = req.body;
-        const attendance = await Attendance.findOneAndDelete({fullName:fullName});
+    const { userId, date } = req.body;
+    const attendance=await Attendance.findOneAndDelete({ userId: userId });
         if (!attendance) {
             return res.status(404).json({ error: "Attendance record not found" });
         }
+        console.log(attendance)
 
 
         const pendingleaves=await Leave.find({status:"pending"});
